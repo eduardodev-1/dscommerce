@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class ControllerExceptionHandler {
 	@ExceptionHandler(DataBaseException.class)
-	public ResponseEntity<CustomError> database(DataBaseException e, HttpServletRequest request) {
+	public ResponseEntity<CustomError> dataBase(DataBaseException e, HttpServletRequest request) {
 		HttpStatus status = HttpStatus.BAD_REQUEST;
 		CustomError err = new CustomError(Instant.now(), status.value(), e.getMessage(), request.getRequestURI());
 		return ResponseEntity.status(status).body(err);
